@@ -69,16 +69,27 @@
       border: none;
       border-radius: 5px;
     }
+    .pdf-select {
+      padding: 10px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 5px;
+      border: 1px solid #ddd;
+    }
   </style>
 </head>
 <body>
   <div class="container" id="content">
     <div class="buttons">
       <button class="translate-btn" id="translate-btn" onclick="toggleLanguage()">عربي</button> <!-- بدأ بالنص العربي -->
-      <button class="pdf-btn" id="pdf-btn" onclick="downloadPDF()">Download</button> <!-- بدأ بالنص الإنجليزي -->
+      <select class="pdf-select" id="pdf-select" onchange="downloadPDF()">
+        <option value="">download----تحميل</option>
+        <option value="arabic">السيرة الذاتية لسامي محمد رشدي التميمي.pdf</option>
+        <option value="english">Resume of Sami Mohammed Rashdi Al-Tamimi.pdf</option>
+      </select>
     </div>
     <h1 id="name">Sami Mohammed Rushdi Al-Tamimi</h1>
-    <div class="profile-pic" id="profilePic"></div>
+    <div class="profile-pic" id="profilePic">سامي محمد رشدي التميمي</div>
     <h2 id="summary-title">Professional Summary</h2>
     <p id="summary-text">A versatile and skilled individual with extensive experience in diverse work environments, including logistics, retail, and higher education. Possesses strong communication and teamwork skills, as well as advanced technical skills in 3D design and photo editing. Seeking an employment opportunity that allows me to leverage my expertise and skills for sustainable career development.</p>
     
@@ -142,20 +153,18 @@
         emailLabel: "البريد الإلكتروني: <a href='mailto:samimt08@hotmail.com'>samimt08@hotmail.com</a>",
         experienceTitle: "الخبرات العملية",
         job1Title: "جامعة القدس (2017 - 2023)",
-        job1List: ["حارس/مراسل/استقبال: مسؤول عن تأمين المبنى، استقبال الزوار، إدارة المراسلات. ساهمت في تحسين إجراءات الأمن أو تقديم خدمة عملاء ممتازة."],
-        job2Title: "شركة البشير للمفرزات: عامل/مشرف (2014 - 2017)",
-        job2List: [
-          "زيادة الإنتاجية: قمت بتنظيم عمل الفريق وتبسيط الإجراءات، مما أدى إلى زيادة الإنتاجية بنسبة 15% خلال الربع الأخير من عام 2016.",
-          "ضبط جودة المنتج: قمت بتطوير نظام جديد لتدقيق جودة البضاعة الواردة، مما أدى إلى تقليل نسبة المنتجات التالفة بنسبة 10% خلال الربع الأخير من عام 2016."
-        ],
-        job3Title: "أعمال حرة: عامل تنظيفات، بائع خضار، موظف سوبر ماركت (2008 - 2013)",
-        job3List: ["اكتسبت مهارات قيمة في التعامل مع العملاء، إدارة الوقت، والعمل تحت ضغط. ساهمت الأعمال الحرة في تطوير مهاراتي الشخصية والاجتماعية."],
+        job1Item1: "حارس / مراسل / موظف استقبال: مسؤول عن تأمين المبنى، واستقبال الزوار، وإدارة المراسلات. ساهم في تحسين إجراءات الأمن أو تقديم خدمة عملاء ممتازة.",
+        job2Title: "شركة البشير للفرز: عامل / مشرف (2014 - 2017)",
+        job2Item1: "زيادة الإنتاجية: تنظيم عمل الفريق وتبسيط الإجراءات، مما أدى إلى زيادة الإنتاجية بنسبة 15% خلال الربع الأخير من 2016.",
+        job2Item2: "مراقبة الجودة: تطوير نظام جديد لمراجعة السلع الواردة، مما قلل نسبة المنتجات التالفة بنسبة 10% خلال الربع الأخير من 2016.",
+        job3Title: "أعمال حرة: عامل تنظيف، بائع خضار، موظف سوبرماركت (2008 - 2013)",
+        job3Item1: "اكتسبت مهارات قيمة في التفاعل مع العملاء، وإدارة الوقت، والعمل تحت الضغط. ساعدت الأعمال الحرة في تطوير مهاراتي الشخصية والاجتماعية.",
         educationTitle: "التعليم",
         educationText: "شهادة الثانوية العامة: (2020) دراسة خاصة",
-        skillsTitle: "مهارات",
-        skillsText: "<strong>حاسوب:</strong> برمجة، طباعة، أوفيس (وورد، إكسيل، باوربوينت)",
-        languagesText: "<strong>لغات:</strong> إنجليزي، عربي",
-        techSkillsText: "<strong>تقنية:</strong> تصميم ثلاثي الأبعاد: ثريدي ماكس، سكتش اب، بلندر، يونيتي، مايا | تعديل الصور: فوتوشوب، الستريتر، كارول دروو، انديواين"
+        skillsTitle: "المهارات",
+        skillsText: "<strong>الحاسوب:</strong> البرمجة، الكتابة، برامج الأوفيس (وورد، إكسل، باوربوينت)",
+        languagesText: "<strong>اللغات:</strong> الإنجليزية، العربية",
+        techSkillsText: "<strong>التقنية:</strong> التصميم ثلاثي الأبعاد: 3D Max، SketchUp، Blender، Unity، Maya | تحرير الصور: Photoshop، Illustrator، Corel Draw، InDesign",
       },
       en: {
         direction: "ltr",
@@ -173,68 +182,68 @@
         emailLabel: "Email: <a href='mailto:samimt08@hotmail.com'>samimt08@hotmail.com</a>",
         experienceTitle: "Work Experience",
         job1Title: "Al-Quds University (2017 - 2023)",
-        job1List: ["Guard / Messenger / Receptionist: Responsible for securing the building, greeting visitors, and managing correspondence. Contributed to improving security procedures or providing excellent customer service."],
+        job1Item1: "Guard / Messenger / Receptionist: Responsible for securing the building, greeting visitors, and managing correspondence. Contributed to improving security procedures or providing excellent customer service.",
         job2Title: "Al-Bashir Company for Sorting: Worker / Supervisor (2014 - 2017)",
-        job2List: [
-          "Increased Productivity: Organized the team's work and streamlined procedures, resulting in a 15% increase in productivity during the last quarter of 2016.",
-          "Quality Control: Developed a new system for auditing incoming goods, reducing the percentage of damaged products by 10% during the last quarter of 2016."
-        ],
+        job2Item1: "Increased Productivity: Organized the team's work and streamlined procedures, resulting in a 15% increase in productivity during the last quarter of 2016.",
+        job2Item2: "Quality Control: Developed a new system for auditing incoming goods, reducing the percentage of damaged products by 10% during the last quarter of 2016.",
         job3Title: "Freelance Work: Cleaning Worker, Vegetable Seller, Supermarket Employee (2008 - 2013)",
-        job3List: ["Gained valuable skills in customer interaction, time management, and working under pressure. Freelance work helped develop my personal and social skills."],
+        job3Item1: "Gained valuable skills in customer interaction, time management, and working under pressure. Freelance work helped develop my personal and social skills.",
         educationTitle: "Education",
         educationText: "High School Diploma: (2020) Private Study",
         skillsTitle: "Skills",
         skillsText: "<strong>Computer:</strong> Programming, Typing, Office (Word, Excel, PowerPoint)",
         languagesText: "<strong>Languages:</strong> English, Arabic",
-        techSkillsText: "<strong>Technical:</strong> 3D Design: 3D Max, SketchUp, Blender, Unity, Maya | Photo Editing: Photoshop, Illustrator, Corel Draw, InDesign"
-      }
+        techSkillsText: "<strong>Technical:</strong> 3D Design: 3D Max, SketchUp, Blender, Unity, Maya | Photo Editing: Photoshop, Illustrator, Corel Draw, InDesign",
+      },
     };
 
     function toggleLanguage() {
       isArabic = !isArabic;
-      const lang = isArabic ? 'ar' : 'en';
-      const content = translations[lang];
+      document.body.style.direction = isArabic ? translations.ar.direction : translations.en.direction;
+      document.body.style.textAlign = isArabic ? translations.ar.textAlign : translations.en.textAlign;
 
-      document.body.style.direction = content.direction;
-      document.body.style.textAlign = content.textAlign;
-      document.getElementById("profilePic").style.float = content.floatDirection;
+      document.getElementById("name").innerHTML = isArabic ? translations.ar.name : translations.en.name;
+      document.getElementById("summary-title").innerHTML = isArabic ? translations.ar.summaryTitle : translations.en.summaryTitle;
+      document.getElementById("summary-text").innerHTML = isArabic ? translations.ar.summaryText : translations.en.summaryText;
+      document.getElementById("personal-info-title").innerHTML = isArabic ? translations.ar.personalInfoTitle : translations.en.personalInfoTitle;
+      document.getElementById("name-label").innerHTML = isArabic ? translations.ar.nameLabel : translations.en.nameLabel;
+      document.getElementById("id-label").innerHTML = isArabic ? translations.ar.idLabel : translations.en.idLabel;
+      document.getElementById("dob-label").innerHTML = isArabic ? translations.ar.dobLabel : translations.en.dobLabel;
+      document.getElementById("address-label").innerHTML = isArabic ? translations.ar.addressLabel : translations.en.addressLabel;
+      document.getElementById("phone-label").innerHTML = isArabic ? translations.ar.phoneLabel : translations.en.phoneLabel;
+      document.getElementById("email-label").innerHTML = isArabic ? translations.ar.emailLabel : translations.en.emailLabel;
+      document.getElementById("experience-title").innerHTML = isArabic ? translations.ar.experienceTitle : translations.en.experienceTitle;
+      document.getElementById("job1-title").innerHTML = isArabic ? translations.ar.job1Title : translations.en.job1Title;
+      document.getElementById("job1-item1").innerHTML = isArabic ? translations.ar.job1Item1 : translations.en.job1Item1;
+      document.getElementById("job2-title").innerHTML = isArabic ? translations.ar.job2Title : translations.en.job2Title;
+      document.getElementById("job2-item1").innerHTML = isArabic ? translations.ar.job2Item1 : translations.en.job2Item1;
+      document.getElementById("job2-item2").innerHTML = isArabic ? translations.ar.job2Item2 : translations.en.job2Item2;
+      document.getElementById("job3-title").innerHTML = isArabic ? translations.ar.job3Title : translations.en.job3Title;
+      document.getElementById("job3-item1").innerHTML = isArabic ? translations.ar.job3Item1 : translations.en.job3Item1;
+      document.getElementById("education-title").innerHTML = isArabic ? translations.ar.educationTitle : translations.en.educationTitle;
+      document.getElementById("education-text").innerHTML = isArabic ? translations.ar.educationText : translations.en.educationText;
+      document.getElementById("skills-title").innerHTML = isArabic ? translations.ar.skillsTitle : translations.en.skillsTitle;
+      document.getElementById("skills-text").innerHTML = isArabic ? translations.ar.skillsText : translations.en.skillsText;
+      document.getElementById("languages-text").innerHTML = isArabic ? translations.ar.languagesText : translations.en.languagesText;
+      document.getElementById("tech-skills-text").innerHTML = isArabic ? translations.ar.techSkillsText : translations.en.techSkillsText;
 
-      document.getElementById("name").innerHTML = content.name;
-      document.getElementById("summary-title").innerHTML = content.summaryTitle;
-      document.getElementById("summary-text").innerHTML = content.summaryText;
-      document.getElementById("personal-info-title").innerHTML = content.personalInfoTitle;
-      document.getElementById("name-label").innerHTML = content.nameLabel;
-      document.getElementById("id-label").innerHTML = content.idLabel;
-      document.getElementById("dob-label").innerHTML = content.dobLabel;
-      document.getElementById("address-label").innerHTML = content.addressLabel;
-      document.getElementById("phone-label").innerHTML = content.phoneLabel;
-      document.getElementById("email-label").innerHTML = content.emailLabel;
-      document.getElementById("experience-title").innerHTML = content.experienceTitle;
-      document.getElementById("job1-title").innerHTML = content.job1Title;
-      document.getElementById("job1-list").innerHTML = content.job1List.map(item => `<li>${item}</li>`).join('');
-      document.getElementById("job2-title").innerHTML = content.job2Title;
-      document.getElementById("job2-list").innerHTML = content.job2List.map(item => `<li>${item}</li>`).join('');
-      document.getElementById("job3-title").innerHTML = content.job3Title;
-      document.getElementById("job3-list").innerHTML = content.job3List.map(item => `<li>${item}</li>`).join('');
-      document.getElementById("education-title").innerHTML = content.educationTitle;
-      document.getElementById("education-text").innerHTML = content.educationText;
-      document.getElementById("skills-title").innerHTML = content.skillsTitle;
-      document.getElementById("skills-text").innerHTML = content.skillsText;
-      document.getElementById("languages-text").innerHTML = content.languagesText;
-      document.getElementById("tech-skills-text").innerHTML = content.techSkillsText;
-
-      // تغيير نص الزر حسب اللغة
-      document.getElementById("translate-btn").innerText = isArabic ? "English" : "عربي";
-      document.getElementById("pdf-btn").innerText = isArabic ? "تحميل" : "Download";
+      // Update the float direction for profile picture based on the current language
+      document.getElementById("profilePic").style.float = isArabic ? translations.ar.floatDirection : translations.en.floatDirection;
     }
 
     function downloadPDF() {
-      const element = document.getElementById("content");
-      html2pdf()
-        .from(element)
-        .save('سيرة_ذاتية_سامي_محمد_رشدي_التميمي.pdf');
+      const select = document.getElementById("pdf-select");
+      const value = select.value;
+      let url = "";
+      if (value === "arabic") {
+        url = "السيرة الذاتية لسامي محمد رشدي التميمي.pdf";
+      } else if (value === "english") {
+        url = "Resume of Sami Mohammed Rashdi Al-Tamimi.pdf";
+      }
+      if (url) {
+        window.open(url, "_blank");
+      }
     }
   </script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 </body>
 </html>
