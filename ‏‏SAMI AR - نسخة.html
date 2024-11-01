@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>السيرة الذاتية لسامي محمد رشدي التميمي</title>
+  <style>
+    @page { size: A4; margin: 20mm; }
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .container {
+      width: 210mm;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      direction: ltr; /* بدلاً من rtl لتكون اللغة الإنجليزية هي المبدئية */
+      text-align: left; /* بدلاً من right */
+      transition: all 0.3s ease;
+    }
+    h1, h2, h3 { color: #0056b3; }
+    h1 { border-bottom: 2px solid #0056b3; padding-bottom: 10px; }
+    h2 { border-bottom: 1px solid #0056b3; padding-bottom: 5px; }
+    ul { list-style-type: none; padding: 0; }
+    li { background: #fff; margin: 5px 0; padding: 10px; border: 1px solid #ddd; border-radius: 5px; }
+    p, a { margin: 0 0 10px; }
+    .profile-pic {
+      float: left; /* تغيير الاتجاه إلى اليسار لأن اللغة الإنجليزية في الجهة اليسرى */
+      margin: 0 20px 20px 0; /* ترتيب الهوامش ليتناسب مع التنسيق */
+      width: 150px;
+      height: 150px;
+      background-image: url('IMG-20240826-WA0010.jpg');
+      background-size: cover;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 150px;
+      color: #aaa;
+      font-size: 14px;
+      transition: float 0.3s ease;
+    }
+    .personal-info {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+    .left, .right {
+      width: 50%;
+      text-align: left; /* لجعل النص داخل القسم الأيسر بمحاذاة اليسار */
+    }
+    .buttons {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 20px; /* تغيير المسافة السفلية للتناسب */
+    }
+    .translate-btn, .pdf-btn {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      background-color: #0056b3;
+      color: white;
+      border: none;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container" id="content">
+    <div class="buttons">
+      <button class="translate-btn" id="translate-btn" onclick="toggleLanguage()">عربي</button> <!-- بدأ بالنص العربي -->
+      <button class="pdf-btn" id="pdf-btn" onclick="downloadPDF()">Download</button> <!-- بدأ بالنص الإنجليزي -->
+    </div>
+    <h1 id="name">Sami Mohammed Rushdi Al-Tamimi</h1>
+    <div class="profile-pic" id="profilePic"></div>
+    <h2 id="summary-title">Professional Summary</h2>
+    <p id="summary-text">A versatile and skilled individual with extensive experience in diverse work environments, including logistics, retail, and higher education. Possesses strong communication and teamwork skills, as well as advanced technical skills in 3D design and photo editing. Seeking an employment opportunity that allows me to leverage my expertise and skills for sustainable career development.</p>
+    
+    <h2 id="personal-info-title">Personal Information</h2>
+    <div class="personal-info">
+      <div class="right">
+        <p id="name-label">Name: Sami Mohammed Rushdi Al-Tamimi</p>
+        <p id="id-label">ID Number: 411669161</p>
+        <p id="dob-label">Date of Birth: 7/12/1989</p>
+      </div>
+      <div class="left">
+        <p id="address-label">Address: Palestine, Ramallah, Nabi Saleh</p>
+        <p id="phone-label">Phone: <a href="https://wa.me/972597910020">0597910020</a></p>
+        <p id="email-label">Email: <a href="mailto:samimt08@hotmail.com">samimt08@hotmail.com</a></p>
+      </div>
+    </div>
+
+    <h2 id="experience-title">Work Experience</h2>
+    <h3 id="job1-title">Al-Quds University (2017 - 2023)</h3>
+    <ul id="job1-list">
+      <li id="job1-item1">Guard / Messenger / Receptionist: Responsible for securing the building, greeting visitors, and managing correspondence. Contributed to improving security procedures or providing excellent customer service.</li>
+    </ul>
+    
+    <h3 id="job2-title">Al-Bashir Company for Sorting: Worker / Supervisor (2014 - 2017)</h3>
+    <ul id="job2-list">
+      <li id="job2-item1">Increased Productivity: Organized the team's work and streamlined procedures, resulting in a 15% increase in productivity during the last quarter of 2016.</li>
+      <li id="job2-item2">Quality Control: Developed a new system for auditing incoming goods, reducing the percentage of damaged products by 10% during the last quarter of 2016.</li>
+    </ul>
+    
+    <h3 id="job3-title">Freelance Work: Cleaning Worker, Vegetable Seller, Supermarket Employee (2008 - 2013)</h3>
+    <ul id="job3-list">
+      <li id="job3-item1">Gained valuable skills in customer interaction, time management, and working under pressure. Freelance work helped develop my personal and social skills.</li>
+    </ul>
+    
+    <h2 id="education-title">Education</h2>
+    <p id="education-text">High School Diploma: (2020) Private Study</p>
+    
+    <h2 id="skills-title">Skills</h2>
+    <p id="skills-text"><strong>Computer:</strong> Programming, Typing, Office (Word, Excel, PowerPoint)</p>
+    <p id="languages-text"><strong>Languages:</strong> English, Arabic</p>
+    <p id="tech-skills-text"><strong>Technical:</strong> 3D Design: 3D Max, SketchUp, Blender, Unity, Maya | Photo Editing: Photoshop, Illustrator, Corel Draw, InDesign</p>
+  </div>
+
+  <script>
+    let isArabic = false; // بدء اللغة الإنجليزية
+
+    const translations = {
+      ar: {
+        direction: "rtl",
+        textAlign: "right",
+        floatDirection: "right",
+        name: "سامي محمد رشدي التميمي",
+        summaryTitle: "ملخص مهني",
+        summaryText: "شخصٌ متعدد المهارات وذو خبرة واسعة في بيئات عمل متنوعة، بما في ذلك الخدمات اللوجستية والتجزئة والتعليم العالي. يتميز بمهارات قوية في التواصل والعمل الجماعي، بالإضافة إلى مهارات تقنية متقدمة في مجال التصميم ثلاثي الأبعاد وتعديل الصور. يسعى للحصول على فرصة عمل تمكنه من الاستفادة من خبرته ومهاراته في تطوير مهني مستدام.",
+        personalInfoTitle: "البيانات الشخصية",
+        nameLabel: "الاسم: سامي محمد رشدي التميمي",
+        idLabel: "رقم الهوية: 411669161",
+        dobLabel: "تاريخ الميلاد: 7/12/1989",
+        addressLabel: "العنوان: فلسطين، رام الله، النبي صالح",
+        phoneLabel: "الهاتف: <a href='https://wa.me/972597910020'>0597910020</a>",
+        emailLabel: "البريد الإلكتروني: <a href='mailto:samimt08@hotmail.com'>samimt08@hotmail.com</a>",
+        experienceTitle: "الخبرات العملية",
+        job1Title: "جامعة القدس (2017 - 2023)",
+        job1List: ["حارس/مراسل/استقبال: مسؤول عن تأمين المبنى، استقبال الزوار، إدارة المراسلات. ساهمت في تحسين إجراءات الأمن أو تقديم خدمة عملاء ممتازة."],
+        job2Title: "شركة البشير للمفرزات: عامل/مشرف (2014 - 2017)",
+        job2List: [
+          "زيادة الإنتاجية: قمت بتنظيم عمل الفريق وتبسيط الإجراءات، مما أدى إلى زيادة الإنتاجية بنسبة 15% خلال الربع الأخير من عام 2016.",
+          "ضبط جودة المنتج: قمت بتطوير نظام جديد لتدقيق جودة البضاعة الواردة، مما أدى إلى تقليل نسبة المنتجات التالفة بنسبة 10% خلال الربع الأخير من عام 2016."
+        ],
+        job3Title: "أعمال حرة: عامل تنظيفات، بائع خضار، موظف سوبر ماركت (2008 - 2013)",
+        job3List: ["اكتسبت مهارات قيمة في التعامل مع العملاء، إدارة الوقت، والعمل تحت ضغط. ساهمت الأعمال الحرة في تطوير مهاراتي الشخصية والاجتماعية."],
+        educationTitle: "التعليم",
+        educationText: "شهادة الثانوية العامة: (2020) دراسة خاصة",
+        skillsTitle: "مهارات",
+        skillsText: "<strong>حاسوب:</strong> برمجة، طباعة، أوفيس (وورد، إكسيل، باوربوينت)",
+        languagesText: "<strong>لغات:</strong> إنجليزي، عربي",
+        techSkillsText: "<strong>تقنية:</strong> تصميم ثلاثي الأبعاد: ثريدي ماكس، سكتش اب، بلندر، يونيتي، مايا | تعديل الصور: فوتوشوب، الستريتر، كارول دروو، انديواين"
+      },
+      en: {
+        direction: "ltr",
+        textAlign: "left",
+        floatDirection: "left",
+        name: "Sami Mohammed Rushdi Al-Tamimi",
+        summaryTitle: "Professional Summary",
+        summaryText: "A versatile and skilled individual with extensive experience in diverse work environments, including logistics, retail, and higher education. Possesses strong communication and teamwork skills, as well as advanced technical skills in 3D design and photo editing. Seeking an employment opportunity that allows me to leverage my expertise and skills for sustainable career development.",
+        personalInfoTitle: "Personal Information",
+        nameLabel: "Name: Sami Mohammed Rushdi Al-Tamimi",
+        idLabel: "ID Number: 411669161",
+        dobLabel: "Date of Birth: 7/12/1989",
+        addressLabel: "Address: Palestine, Ramallah, Nabi Saleh",
+        phoneLabel: "Phone: <a href='https://wa.me/972597910020'>0597910020</a>",
+        emailLabel: "Email: <a href='mailto:samimt08@hotmail.com'>samimt08@hotmail.com</a>",
+        experienceTitle: "Work Experience",
+        job1Title: "Al-Quds University (2017 - 2023)",
+        job1List: ["Guard / Messenger / Receptionist: Responsible for securing the building, greeting visitors, and managing correspondence. Contributed to improving security procedures or providing excellent customer service."],
+        job2Title: "Al-Bashir Company for Sorting: Worker / Supervisor (2014 - 2017)",
+        job2List: [
+          "Increased Productivity: Organized the team's work and streamlined procedures, resulting in a 15% increase in productivity during the last quarter of 2016.",
+          "Quality Control: Developed a new system for auditing incoming goods, reducing the percentage of damaged products by 10% during the last quarter of 2016."
+        ],
+        job3Title: "Freelance Work: Cleaning Worker, Vegetable Seller, Supermarket Employee (2008 - 2013)",
+        job3List: ["Gained valuable skills in customer interaction, time management, and working under pressure. Freelance work helped develop my personal and social skills."],
+        educationTitle: "Education",
+        educationText: "High School Diploma: (2020) Private Study",
+        skillsTitle: "Skills",
+        skillsText: "<strong>Computer:</strong> Programming, Typing, Office (Word, Excel, PowerPoint)",
+        languagesText: "<strong>Languages:</strong> English, Arabic",
+        techSkillsText: "<strong>Technical:</strong> 3D Design: 3D Max, SketchUp, Blender, Unity, Maya | Photo Editing: Photoshop, Illustrator, Corel Draw, InDesign"
+      }
+    };
+
+    function toggleLanguage() {
+      isArabic = !isArabic;
+      const lang = isArabic ? 'ar' : 'en';
+      const content = translations[lang];
+
+      document.body.style.direction = content.direction;
+      document.body.style.textAlign = content.textAlign;
+      document.getElementById("profilePic").style.float = content.floatDirection;
+
+      document.getElementById("name").innerHTML = content.name;
+      document.getElementById("summary-title").innerHTML = content.summaryTitle;
+      document.getElementById("summary-text").innerHTML = content.summaryText;
+      document.getElementById("personal-info-title").innerHTML = content.personalInfoTitle;
+      document.getElementById("name-label").innerHTML = content.nameLabel;
+      document.getElementById("id-label").innerHTML = content.idLabel;
+      document.getElementById("dob-label").innerHTML = content.dobLabel;
+      document.getElementById("address-label").innerHTML = content.addressLabel;
+      document.getElementById("phone-label").innerHTML = content.phoneLabel;
+      document.getElementById("email-label").innerHTML = content.emailLabel;
+      document.getElementById("experience-title").innerHTML = content.experienceTitle;
+      document.getElementById("job1-title").innerHTML = content.job1Title;
+      document.getElementById("job1-list").innerHTML = content.job1List.map(item => `<li>${item}</li>`).join('');
+      document.getElementById("job2-title").innerHTML = content.job2Title;
+      document.getElementById("job2-list").innerHTML = content.job2List.map(item => `<li>${item}</li>`).join('');
+      document.getElementById("job3-title").innerHTML = content.job3Title;
+      document.getElementById("job3-list").innerHTML = content.job3List.map(item => `<li>${item}</li>`).join('');
+      document.getElementById("education-title").innerHTML = content.educationTitle;
+      document.getElementById("education-text").innerHTML = content.educationText;
+      document.getElementById("skills-title").innerHTML = content.skillsTitle;
+      document.getElementById("skills-text").innerHTML = content.skillsText;
+      document.getElementById("languages-text").innerHTML = content.languagesText;
+      document.getElementById("tech-skills-text").innerHTML = content.techSkillsText;
+
+      // تغيير نص الزر حسب اللغة
+      document.getElementById("translate-btn").innerText = isArabic ? "English" : "عربي";
+      document.getElementById("pdf-btn").innerText = isArabic ? "تحميل" : "Download";
+    }
+
+    function downloadPDF() {
+      const element = document.getElementById("content");
+      html2pdf()
+        .from(element)
+        .save('سيرة_ذاتية_سامي_محمد_رشدي_التميمي.pdf');
+    }
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</body>
+</html>
