@@ -51,7 +51,7 @@
         experienceTitle: "Work Experience",
         job1Title: "Al-Quds University (2017 - 2023)",
         job1Item1: "Guard / Messenger / Receptionist: Responsible for securing the building, greeting visitors, and managing correspondence. Contributed to improving security procedures or providing excellent customer service.",
-        job2Title: "Al-Bashir Company for Sorting: Worker / Supervisor (2014 - 2017)",
+        job2Title: "Al-Bashir Company for Frozen Food / Supervisor (2014 - 2017)",
         job2Item1: "Increased Productivity: Organized the team's work and streamlined procedures, resulting in a 15% increase in productivity during the last quarter of 2016.",
         job2Item2: "Quality Control: Developed a new system for auditing incoming goods, reducing the percentage of damaged products by 10% during the last quarter of 2016.",
         job3Title: "Freelance Work: Cleaning Worker, Vegetable Seller, Supermarket Employee (2008 - 2013)",
