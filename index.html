@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <title>السيرة الذاتية لسامي محمد رشدي التميمي</title>
-  <style>
+    
+    <style>
     @page { size: A4; margin: 20mm; }
     body {
       font-family: Arial, sans-serif;
@@ -15,6 +16,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      transition: direction 0.3s ease, text-align 0.3s ease; /* إضافة انتقال سلس لتغيير الاتجاه */
     }
     .container {
       width: 210mm;
@@ -22,8 +24,6 @@
       background-color: #fff;
       border-radius: 5px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      direction: ltr; /* بدلاً من rtl لتكون اللغة الإنجليزية هي المبدئية */
-      text-align: left; /* بدلاً من right */
       transition: all 0.3s ease;
     }
     h1, h2, h3 { color: #0056b3; }
@@ -33,8 +33,6 @@
     li { background: #fff; margin: 5px 0; padding: 10px; border: 1px solid #ddd; border-radius: 5px; }
     p, a { margin: 0 0 10px; }
     .profile-pic {
-      float: left; /* تغيير الاتجاه إلى اليسار لأن اللغة الإنجليزية في الجهة اليسرى */
-      margin: 0 20px 20px 0; /* ترتيب الهوامش ليتناسب مع التنسيق */
       width: 150px;
       height: 150px;
       background-image: url('IMG-20240826-WA0010.jpg');
@@ -53,12 +51,11 @@
     }
     .left, .right {
       width: 50%;
-      text-align: left; /* لجعل النص داخل القسم الأيسر بمحاذاة اليسار */
     }
     .buttons {
       display: flex;
       justify-content: space-between;
-      margin-bottom: 20px; /* تغيير المسافة السفلية للتناسب */
+      margin-bottom: 20px;
     }
     .translate-btn, .pdf-btn {
       padding: 10px 20px;
@@ -78,7 +75,9 @@
     }
   </style>
 </head>
-<body>
+    <body>
+    
+
   <div class="container" id="content">
     <div class="buttons">
       <button class="translate-btn" id="translate-btn" onclick="toggleLanguage()">عربي</button> <!-- بدأ بالنص العربي -->
@@ -125,22 +124,29 @@
     </ul>
     
     <h2 id="education-title">Education</h2>
-    <li id="education-text">High School Diploma: (2020) Self-education</li>
+      <ul>
+          <li id="education-text">High School Diploma: (2020) Self-education</li> 
+    </ul>
     
     <h2 id="skills-title">Skills</h2>
+      <ul>
     <li id="skills-text"><strong>Computer:</strong> Programming, Typing, Office (Word, Excel, PowerPoint)</li>
     <li id="languages-text"><strong>Languages:</strong> English, Arabic</li>
     <li id="tech-skills-text"><strong>Technical:</strong> 3D Design: 3D Max, SketchUp, Blender, Unity, Maya | Photo Editing: Photoshop, Illustrator, Corel Draw, InDesign</li>
+          </ul>
   </div>
-
+  
   <script>
+      
     let isArabic = false; // بدء اللغة الإنجليزية
 
     const translations = {
       ar: {
+          
         direction: "rtl",
         textAlign: "right",
         floatDirection: "right",
+          
         name: "سامي محمد رشدي التميمي",
         summaryTitle: "ملخص مهني",
         summaryText: "شخصٌ متعدد المهارات وذو خبرة واسعة في بيئات عمل متنوعة، بما في ذلك الخدمات اللوجستية والتجزئة والتعليم العالي. يتميز بمهارات قوية في التواصل والعمل الجماعي، بالإضافة إلى مهارات تقنية متقدمة في مجال التصميم ثلاثي الأبعاد وتعديل الصور. يسعى للحصول على فرصة عمل تمكنه من الاستفادة من خبرته ومهاراته في تطوير مهني مستدام.",
@@ -167,6 +173,7 @@
         techSkillsText: "<strong>التقنية:</strong> التصميم ثلاثي الأبعاد: 3D Max، SketchUp، Blender، Unity، Maya | تحرير الصور: Photoshop، Illustrator، Corel Draw، InDesign",
       },
       en: {
+          
         direction: "ltr",
         textAlign: "left",
         floatDirection: "left",
@@ -226,7 +233,7 @@
       document.getElementById("skills-text").innerHTML = isArabic ? translations.ar.skillsText : translations.en.skillsText;
       document.getElementById("languages-text").innerHTML = isArabic ? translations.ar.languagesText : translations.en.languagesText;
       document.getElementById("tech-skills-text").innerHTML = isArabic ? translations.ar.techSkillsText : translations.en.techSkillsText;
-      document.getElementById("translate-btn").innerText = isArabic ? "English" : "عربي";
+document.getElementById("translate-btn").innerText = isArabic ? "English" : "عربي"; 
       // Update the float direction for profile picture based on the current language
       document.getElementById("profilePic").style.float = isArabic ? translations.ar.floatDirection : translations.en.floatDirection;
     }
@@ -245,5 +252,7 @@
       }
     }
   </script>
+        
+        
 </body>
 </html>
