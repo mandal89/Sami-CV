@@ -1,16 +1,18 @@
-      
+
     let isArabic = false;
 
     const translations = {
       ar: {
-          
+
         direction: "rtl",
         textAlign: "right",
         floatDirection: "right",
-          
+
         name: "سامي محمد رشدي التميمي",
         summaryTitle: "ملخص مهني",
         summaryText: "شخصٌ متعدد المهارات وذو خبرة واسعة في بيئات عمل متنوعة، بما في ذلك الخدمات اللوجستية والتجزئة والتعليم العالي. يتميز بمهارات قوية في التواصل والعمل الجماعي، بالإضافة إلى مهارات تقنية متقدمة في مجال التصميم ثلاثي الأبعاد وتعديل الصور. يسعى للحصول على فرصة عمل تمكنه من الاستفادة من خبرته ومهاراته في تطوير مهني مستدام.",
+        objectiveTitle: "الهدف المهني",
+        objectiveText: "أسعى إلى فرصة عمل مستقرة أساهم فيها بخبرتي العملية ومهاراتي في العمل الجماعي والمهارات التقنية، مع مواصلة التطور المهني.",
         personalInfoTitle: "البيانات الشخصية",
         nameLabel: "الاسم: سامي محمد رشدي التميمي",
         idLabel: "رقم الهوية: متاح عند الطلب",
@@ -36,13 +38,15 @@
         softSkillsText: "العمل الجماعي، الالتزام، الموثوقية، خدمة العملاء، إدارة الوقت، والعمل تحت الضغط.",
       },
       en: {
-          
+
         direction: "ltr",
         textAlign: "left",
         floatDirection: "left",
         name: "Sami Mohammed Rushdi Al-Tamimi",
         summaryTitle: "Professional Summary",
         summaryText: "A versatile and skilled individual with extensive experience in diverse work environments, including logistics, retail, and higher education. Possesses strong communication and teamwork skills, as well as advanced technical skills in 3D design and photo editing. Seeking an employment opportunity that allows me to leverage my expertise and skills for sustainable career development.",
+        objectiveTitle: "Career Objective",
+        objectiveText: "Seeking a stable opportunity where I can contribute my practical experience, teamwork, and technical skills while continuing to grow professionally.",
         personalInfoTitle: "Personal Information",
         nameLabel: "Name: Sami Mohammed Rushdi Al-Tamimi",
         idLabel: "ID Number: Available upon request",
@@ -78,6 +82,7 @@
 
      const fields = {
        name: "name", summaryTitle: "summary-title", summaryText: "summary-text",
+       objectiveTitle: "objective-title", objectiveText: "objective-text",
        personalInfoTitle: "personal-info-title", nameLabel: "name-label", idLabel: "id-label",
        dobLabel: "dob-label", addressLabel: "address-label", phoneLabel: "phone-label",
        emailLabel: "email-label", experienceTitle: "experience-title", job1Title: "job1-title",
