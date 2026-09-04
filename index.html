@@ -1,34 +1,38 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Bilingual professional CV for Sami Mohammed Rushdi Al-Tamimi.">
   <title>السيرة الذاتية لسامي محمد رشدي التميمي</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="container" id="content">
-    <div class="buttons">
-      <button class="translate-btn" id="translate-btn" onclick="toggleLanguage()">عربي</button>
-      <select class="pdf-select" id="pdf-select" onchange="downloadPDF()">
-        <option value="">download----تحميل</option>
-        <option value="arabic">السيرة الذاتية لسامي محمد رشدي التميمي.pdf</option>
-        <option value="english">Resume of Sami Mohammed Rashdi Al-Tamimi.pdf</option>
-      </select>
-    </div>
+  <main class="container" id="content">
+    <nav class="toolbar" aria-label="CV actions">
+      <button class="translate-btn" id="translate-btn" type="button">عربي</button>
+      <label class="download-control" for="pdf-select">
+        <span class="visually-hidden">Download CV</span>
+        <select class="pdf-select" id="pdf-select">
+          <option value="">Download / تحميل</option>
+          <option value="arabic">السيرة الذاتية لسامي محمد رشدي التميمي.pdf</option>
+          <option value="english">Resume of Sami Mohammed Rashdi Al-Tamimi.pdf</option>
+        </select>
+      </label>
+    </nav>
 
-    <h1 id="name">Sami Mohammed Rushdi Al-Tamimi</h1>
-
-    <div class="profile-section">
-      <div class="profile-pic" id="profilePic"></div>
-      <div class="summary-section">
-        <h2 id="summary-title">Professional Summary</h2>
-        <p id="summary-text">A versatile and skilled individual with extensive experience in diverse work environments, including logistics, retail, and higher education. Possesses strong communication and teamwork skills, as well as advanced technical skills in 3D design and photo editing. Seeking an employment opportunity that allows me to leverage my expertise and skills for sustainable career development.</p>
+    <header class="hero">
+      <div class="profile-pic" id="profilePic" role="img" aria-label="Sami Mohammed Rushdi Al-Tamimi"></div>
+      <div class="hero-content">
+        <h1 id="name">Sami Mohammed Rushdi Al-Tamimi</h1>
+        <h2 id="summary-title" class="hero-summary-title">Professional Summary</h2>
+        <p id="summary-text" class="summary">A versatile and skilled individual with extensive experience in diverse work environments, including logistics, retail, and higher education. Possesses strong communication and teamwork skills, as well as advanced technical skills in 3D design and photo editing. Seeking an employment opportunity that allows me to leverage my expertise and skills for sustainable career development.</p>
       </div>
-    </div>
+    </header>
 
-    <h2 id="personal-info-title">Personal Information</h2>
-    <div class="personal-info">
+    <section class="section" aria-labelledby="personal-info-title">
+      <h2 id="personal-info-title">Personal Information</h2>
+      <div class="personal-info">
       <div class="right">
         <ul>
           <li>
@@ -47,37 +51,48 @@
           </li>
         </ul>
       </div>
-    </div>
+      </div>
+    </section>
 
-    <h2 id="experience-title">Work Experience</h2>
-    <h3 id="job1-title">Al-Quds University (2017 - 2023)</h3>
-    <ul id="job1-list">
-      <li id="job1-item1">Guard / Messenger / Receptionist: Responsible for securing the building, greeting visitors, and managing correspondence. Contributed to improving security procedures or providing excellent customer service.</li>
-    </ul>
+    <section class="section" aria-labelledby="experience-title">
+      <h2 id="experience-title">Work Experience</h2>
+      <article class="experience-item">
+        <h3 id="job1-title">Al-Quds University <span>(2017 - 2023)</span></h3>
+        <ul id="job1-list">
+          <li id="job1-item1">Guard / Messenger / Receptionist: Responsible for securing the building, greeting visitors, and managing correspondence. Contributed to improving security procedures or providing excellent customer service.</li>
+        </ul>
+      </article>
 
-    <h3 id="job2-title">Al-Bashir Company for Frozen Food Worker / Supervisor (2014 - 2017)</h3>
-    <ul id="job2-list">
-      <li id="job2-item1">Increased Productivity: Organized the team's work and streamlined procedures, resulting in a 15% increase in productivity during the last quarter of 2016.</li>
-      <li id="job2-item2">Quality Control: Developed a new system for auditing incoming goods, reducing the percentage of damaged products by 10% during the last quarter of 2016.</li>
-    </ul>
+      <article class="experience-item">
+        <h3 id="job2-title">Al-Bashir Company for Frozen Food <span>Worker / Supervisor (2014 - 2017)</span></h3>
+        <ul id="job2-list">
+          <li id="job2-item1">Increased Productivity: Organized the team's work and streamlined procedures, resulting in a 15% increase in productivity during the last quarter of 2016.</li>
+          <li id="job2-item2">Quality Control: Developed a new system for auditing incoming goods, reducing the percentage of damaged products by 10% during the last quarter of 2016.</li>
+        </ul>
+      </article>
 
-    <h3 id="job3-title">Freelance Work: Cleaning Worker, Vegetable Seller, Supermarket Employee (2008 - 2013)</h3>
-    <ul id="job3-list">
-      <li id="job3-item1">Gained valuable skills in customer interaction, time management, and working under pressure. Freelance work helped develop my personal and social skills.</li>
-    </ul>
+      <article class="experience-item">
+        <h3 id="job3-title">Freelance Work <span>Cleaning Worker, Vegetable Seller, Supermarket Employee (2008 - 2013)</span></h3>
+        <ul id="job3-list">
+          <li id="job3-item1">Gained valuable skills in customer interaction, time management, and working under pressure. Freelance work helped develop my personal and social skills.</li>
+        </ul>
+      </article>
+    </section>
 
-    <h2 id="education-title">Education</h2>
-    <ul>
-      <li id="education-text">High School Diploma: (2020) Self-education</li>
-    </ul>
+    <section class="section" aria-labelledby="education-title">
+      <h2 id="education-title">Education</h2>
+      <ul><li id="education-text">High School Diploma: (2020) Self-education</li></ul>
+    </section>
 
-    <h2 id="skills-title">Skills</h2>
-    <ul>
-      <li id="skills-text"><strong>Computer:</strong> Programming, Typing, Office (Word, Excel, PowerPoint)</li>
-      <li id="languages-text"><strong>Languages:</strong> English, Arabic</li>
-      <li id="tech-skills-text"><strong>Technical:</strong> 3D Design: 3D Max, SketchUp, Blender, Unity, Maya | Photo Editing: Photoshop, Illustrator, Corel Draw, InDesign</li>
-    </ul>
-  </div>
+    <section class="section" aria-labelledby="skills-title">
+      <h2 id="skills-title">Skills</h2>
+      <ul>
+        <li id="skills-text"><strong>Computer:</strong> Programming, Typing, Office (Word, Excel, PowerPoint)</li>
+        <li id="languages-text"><strong>Languages:</strong> English, Arabic</li>
+        <li id="tech-skills-text"><strong>Technical:</strong> 3D Design: 3D Max, SketchUp, Blender, Unity, Maya | Photo Editing: Photoshop, Illustrator, Corel Draw, InDesign</li>
+      </ul>
+    </section>
+  </main>
   <script src="script.js"></script>
 </body>
 </html>
