@@ -10,7 +10,10 @@
 <body>
   <main class="container" id="content">
     <nav class="toolbar" aria-label="CV actions">
-      <button class="translate-btn" id="translate-btn" type="button">عربي</button>
+      <div class="toolbar-actions">
+        <button class="translate-btn" id="translate-btn" type="button">عربي</button>
+        <button class="print-btn" id="print-btn" type="button">Print / طباعة</button>
+      </div>
       <label class="download-control" for="pdf-select">
         <span class="visually-hidden">Download CV</span>
         <select class="pdf-select" id="pdf-select">
@@ -37,7 +40,7 @@
         <ul>
           <li>
             <p id="name-label">Name: Sami Mohammed Rushdi Al-Tamimi</p>
-            <p id="id-label">ID Number: 411669161</p>
+            <p id="id-label">ID Number: Available upon request</p>
             <p id="dob-label">Date of Birth: 7/12/1989</p>
           </li>
         </ul>
@@ -90,6 +93,13 @@
         <li id="skills-text"><strong>Computer:</strong> Programming, Typing, Office (Word, Excel, PowerPoint)</li>
         <li id="languages-text"><strong>Languages:</strong> English, Arabic</li>
         <li id="tech-skills-text"><strong>Technical:</strong> 3D Design: 3D Max, SketchUp, Blender, Unity, Maya | Photo Editing: Photoshop, Illustrator, Corel Draw, InDesign</li>
+      </ul>
+    </section>
+
+    <section class="section" aria-labelledby="soft-skills-title">
+      <h2 id="soft-skills-title">Personal Skills</h2>
+      <ul>
+        <li id="soft-skills-text">Teamwork, commitment, reliability, customer service, time management, and working under pressure.</li>
       </ul>
     </section>
   </main>

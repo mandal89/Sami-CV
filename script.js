@@ -13,7 +13,7 @@
         summaryText: "شخصٌ متعدد المهارات وذو خبرة واسعة في بيئات عمل متنوعة، بما في ذلك الخدمات اللوجستية والتجزئة والتعليم العالي. يتميز بمهارات قوية في التواصل والعمل الجماعي، بالإضافة إلى مهارات تقنية متقدمة في مجال التصميم ثلاثي الأبعاد وتعديل الصور. يسعى للحصول على فرصة عمل تمكنه من الاستفادة من خبرته ومهاراته في تطوير مهني مستدام.",
         personalInfoTitle: "البيانات الشخصية",
         nameLabel: "الاسم: سامي محمد رشدي التميمي",
-        idLabel: "رقم الهوية: 411669161",
+        idLabel: "رقم الهوية: متاح عند الطلب",
         dobLabel: "تاريخ الميلاد: 7/12/1989",
         addressLabel: "العنوان: فلسطين، رام الله، النبي صالح",
         phoneLabel: "الهاتف: <a href='https://wa.me/972597910020'>0597910020</a>",
@@ -32,6 +32,8 @@
         skillsText: "<strong>الحاسوب:</strong> البرمجة، الكتابة، برامج الأوفيس (وورد، إكسل، باوربوينت)",
         languagesText: "<strong>اللغات:</strong> الإنجليزية، العربية",
         techSkillsText: "<strong>التقنية:</strong> التصميم ثلاثي الأبعاد: 3D Max، SketchUp، Blender، Unity، Maya | تحرير الصور: Photoshop، Illustrator، Corel Draw، InDesign",
+        softSkillsTitle: "المهارات الشخصية",
+        softSkillsText: "العمل الجماعي، الالتزام، الموثوقية، خدمة العملاء، إدارة الوقت، والعمل تحت الضغط.",
       },
       en: {
           
@@ -43,7 +45,7 @@
         summaryText: "A versatile and skilled individual with extensive experience in diverse work environments, including logistics, retail, and higher education. Possesses strong communication and teamwork skills, as well as advanced technical skills in 3D design and photo editing. Seeking an employment opportunity that allows me to leverage my expertise and skills for sustainable career development.",
         personalInfoTitle: "Personal Information",
         nameLabel: "Name: Sami Mohammed Rushdi Al-Tamimi",
-        idLabel: "ID Number: 411669161",
+        idLabel: "ID Number: Available upon request",
         dobLabel: "Date of Birth: 7/12/1989",
         addressLabel: "Address: Palestine, Ramallah, Nabi Saleh",
         phoneLabel: "Phone: <a href='https://wa.me/972597910020'>0597910020</a>",
@@ -62,6 +64,8 @@
         skillsText: "<strong>Computer:</strong> Programming, Typing, Office (Word, Excel, PowerPoint)",
         languagesText: "<strong>Languages:</strong> English, Arabic",
         techSkillsText: "<strong>Technical:</strong> 3D Design: 3D Max, SketchUp, Blender, Unity, Maya | Photo Editing: Photoshop, Illustrator, Corel Draw, InDesign",
+        softSkillsTitle: "Personal Skills",
+        softSkillsText: "Teamwork, commitment, reliability, customer service, time management, and working under pressure.",
       },
     };
 
@@ -80,7 +84,8 @@
        job1Item1: "job1-item1", job2Title: "job2-title", job2Item1: "job2-item1",
        job2Item2: "job2-item2", job3Title: "job3-title", job3Item1: "job3-item1",
        educationTitle: "education-title", educationText: "education-text", skillsTitle: "skills-title",
-       skillsText: "skills-text", languagesText: "languages-text", techSkillsText: "tech-skills-text"
+       skillsText: "skills-text", languagesText: "languages-text", techSkillsText: "tech-skills-text",
+       softSkillsTitle: "soft-skills-title", softSkillsText: "soft-skills-text"
      };
      Object.entries(fields).forEach(([key, id]) => {
        document.getElementById(id).innerHTML = language[key];
@@ -105,3 +110,4 @@
 
     document.getElementById("translate-btn").addEventListener("click", toggleLanguage);
     document.getElementById("pdf-select").addEventListener("change", downloadPDF);
+    document.getElementById("print-btn").addEventListener("click", () => window.print());
