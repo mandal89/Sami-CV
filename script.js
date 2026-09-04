@@ -1,5 +1,5 @@
       
-    let isArabic = false; // بدء اللغة الإنجليزية
+    let isArabic = false;
 
     const translations = {
       ar: {
@@ -67,36 +67,25 @@
 
     function toggleLanguage() {
       isArabic = !isArabic;
-      document.body.style.direction = isArabic ? translations.ar.direction : translations.en.direction;
-      document.body.style.textAlign = isArabic ? translations.ar.textAlign : translations.en.textAlign;
+     const language = isArabic ? translations.ar : translations.en;
+     document.documentElement.lang = isArabic ? "ar" : "en";
+     document.documentElement.dir = language.direction;
+     document.body.style.textAlign = language.textAlign;
 
-      document.getElementById("name").innerHTML = isArabic ? translations.ar.name : translations.en.name;
-      document.getElementById("summary-title").innerHTML = isArabic ? translations.ar.summaryTitle : translations.en.summaryTitle;
-      document.getElementById("summary-text").innerHTML = isArabic ? translations.ar.summaryText : translations.en.summaryText;
-      document.getElementById("personal-info-title").innerHTML = isArabic ? translations.ar.personalInfoTitle : translations.en.personalInfoTitle;
-      document.getElementById("name-label").innerHTML = isArabic ? translations.ar.nameLabel : translations.en.nameLabel;
-      document.getElementById("id-label").innerHTML = isArabic ? translations.ar.idLabel : translations.en.idLabel;
-      document.getElementById("dob-label").innerHTML = isArabic ? translations.ar.dobLabel : translations.en.dobLabel;
-      document.getElementById("address-label").innerHTML = isArabic ? translations.ar.addressLabel : translations.en.addressLabel;
-      document.getElementById("phone-label").innerHTML = isArabic ? translations.ar.phoneLabel : translations.en.phoneLabel;
-      document.getElementById("email-label").innerHTML = isArabic ? translations.ar.emailLabel : translations.en.emailLabel;
-      document.getElementById("experience-title").innerHTML = isArabic ? translations.ar.experienceTitle : translations.en.experienceTitle;
-      document.getElementById("job1-title").innerHTML = isArabic ? translations.ar.job1Title : translations.en.job1Title;
-      document.getElementById("job1-item1").innerHTML = isArabic ? translations.ar.job1Item1 : translations.en.job1Item1;
-      document.getElementById("job2-title").innerHTML = isArabic ? translations.ar.job2Title : translations.en.job2Title;
-      document.getElementById("job2-item1").innerHTML = isArabic ? translations.ar.job2Item1 : translations.en.job2Item1;
-      document.getElementById("job2-item2").innerHTML = isArabic ? translations.ar.job2Item2 : translations.en.job2Item2;
-      document.getElementById("job3-title").innerHTML = isArabic ? translations.ar.job3Title : translations.en.job3Title;
-      document.getElementById("job3-item1").innerHTML = isArabic ? translations.ar.job3Item1 : translations.en.job3Item1;
-      document.getElementById("education-title").innerHTML = isArabic ? translations.ar.educationTitle : translations.en.educationTitle;
-      document.getElementById("education-text").innerHTML = isArabic ? translations.ar.educationText : translations.en.educationText;
-      document.getElementById("skills-title").innerHTML = isArabic ? translations.ar.skillsTitle : translations.en.skillsTitle;
-      document.getElementById("skills-text").innerHTML = isArabic ? translations.ar.skillsText : translations.en.skillsText;
-      document.getElementById("languages-text").innerHTML = isArabic ? translations.ar.languagesText : translations.en.languagesText;
-      document.getElementById("tech-skills-text").innerHTML = isArabic ? translations.ar.techSkillsText : translations.en.techSkillsText;
-document.getElementById("translate-btn").innerText = isArabic ? "English" : "عربي"; 
-      // Update the float direction for profile picture based on the current language
-      document.getElementById("profilePic").style.float = isArabic ? translations.ar.floatDirection : translations.en.floatDirection;
+     const fields = {
+       name: "name", summaryTitle: "summary-title", summaryText: "summary-text",
+       personalInfoTitle: "personal-info-title", nameLabel: "name-label", idLabel: "id-label",
+       dobLabel: "dob-label", addressLabel: "address-label", phoneLabel: "phone-label",
+       emailLabel: "email-label", experienceTitle: "experience-title", job1Title: "job1-title",
+       job1Item1: "job1-item1", job2Title: "job2-title", job2Item1: "job2-item1",
+       job2Item2: "job2-item2", job3Title: "job3-title", job3Item1: "job3-item1",
+       educationTitle: "education-title", educationText: "education-text", skillsTitle: "skills-title",
+       skillsText: "skills-text", languagesText: "languages-text", techSkillsText: "tech-skills-text"
+     };
+     Object.entries(fields).forEach(([key, id]) => {
+       document.getElementById(id).innerHTML = language[key];
+     });
+     document.getElementById("translate-btn").innerText = isArabic ? "English" : "عربي";
     }
 
     function downloadPDF() {
@@ -109,6 +98,10 @@ document.getElementById("translate-btn").innerText = isArabic ? "English" : "ع�
         url = "Resume of Sami Mohammed Rashdi Al-Tamimi.pdf";
       }
       if (url) {
-        window.open(url, "_blank");
+        window.open(url, "_blank", "noopener,noreferrer");
+        select.value = "";
       }
     }
+
+    document.getElementById("translate-btn").addEventListener("click", toggleLanguage);
+    document.getElementById("pdf-select").addEventListener("change", downloadPDF);
