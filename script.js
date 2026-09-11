@@ -1,21 +1,19 @@
-
-    let isArabic = false;
+      
+    let isArabic = false; // بدء اللغة الإنجليزية
 
     const translations = {
       ar: {
-
+          
         direction: "rtl",
         textAlign: "right",
         floatDirection: "right",
-
+          
         name: "سامي محمد رشدي التميمي",
         summaryTitle: "ملخص مهني",
         summaryText: "شخصٌ متعدد المهارات وذو خبرة واسعة في بيئات عمل متنوعة، بما في ذلك الخدمات اللوجستية والتجزئة والتعليم العالي. يتميز بمهارات قوية في التواصل والعمل الجماعي، بالإضافة إلى مهارات تقنية متقدمة في مجال التصميم ثلاثي الأبعاد وتعديل الصور. يسعى للحصول على فرصة عمل تمكنه من الاستفادة من خبرته ومهاراته في تطوير مهني مستدام.",
-        objectiveTitle: "الهدف المهني",
-        objectiveText: "أسعى إلى فرصة عمل مستقرة أساهم فيها بخبرتي العملية ومهاراتي في العمل الجماعي والمهارات التقنية، مع مواصلة التطور المهني.",
         personalInfoTitle: "البيانات الشخصية",
         nameLabel: "الاسم: سامي محمد رشدي التميمي",
-        idLabel: "رقم الهوية: متاح عند الطلب",
+        idLabel: "رقم الهوية: 411669161",
         dobLabel: "تاريخ الميلاد: 7/12/1989",
         addressLabel: "العنوان: فلسطين، رام الله، النبي صالح",
         phoneLabel: "الهاتف: <a href='https://wa.me/972597910020'>0597910020</a>",
@@ -29,27 +27,23 @@
         job3Title: "أعمال حرة: عامل تنظيف، بائع خضار، موظف سوبرماركت (2008 - 2013)",
         job3Item1: "اكتسبت مهارات قيمة في التفاعل مع العملاء، وإدارة الوقت، والعمل تحت الضغط. ساعدت الأعمال الحرة في تطوير مهاراتي الشخصية والاجتماعية.",
         educationTitle: "التعليم",
-        educationText: "شهادة الثانوية العامة: (2020) دراسة خاصة",
+        educationText: "شهادة الثانوي العامة: ()  ",
         skillsTitle: "المهارات",
         skillsText: "<strong>الحاسوب:</strong> البرمجة، الكتابة، برامج الأوفيس (وورد، إكسل، باوربوينت)",
         languagesText: "<strong>اللغات:</strong> الإنجليزية، العربية",
         techSkillsText: "<strong>التقنية:</strong> التصميم ثلاثي الأبعاد: 3D Max، SketchUp، Blender، Unity، Maya | تحرير الصور: Photoshop، Illustrator، Corel Draw، InDesign",
-        softSkillsTitle: "المهارات الشخصية",
-        softSkillsText: "العمل الجماعي، الالتزام، الموثوقية، خدمة العملاء، إدارة الوقت، والعمل تحت الضغط.",
       },
       en: {
-
+          
         direction: "ltr",
         textAlign: "left",
         floatDirection: "left",
         name: "Sami Mohammed Rushdi Al-Tamimi",
         summaryTitle: "Professional Summary",
         summaryText: "A versatile and skilled individual with extensive experience in diverse work environments, including logistics, retail, and higher education. Possesses strong communication and teamwork skills, as well as advanced technical skills in 3D design and photo editing. Seeking an employment opportunity that allows me to leverage my expertise and skills for sustainable career development.",
-        objectiveTitle: "Career Objective",
-        objectiveText: "Seeking a stable opportunity where I can contribute my practical experience, teamwork, and technical skills while continuing to grow professionally.",
         personalInfoTitle: "Personal Information",
         nameLabel: "Name: Sami Mohammed Rushdi Al-Tamimi",
-        idLabel: "ID Number: Available upon request",
+        idLabel: "ID Number: 411669161",
         dobLabel: "Date of Birth: 7/12/1989",
         addressLabel: "Address: Palestine, Ramallah, Nabi Saleh",
         phoneLabel: "Phone: <a href='https://wa.me/972597910020'>0597910020</a>",
@@ -63,42 +57,58 @@
         job3Title: "Freelance Work: Cleaning Worker, Vegetable Seller, Supermarket Employee (2008 - 2013)",
         job3Item1: "Gained valuable skills in customer interaction, time management, and working under pressure. Freelance work helped develop my personal and social skills.",
         educationTitle: "Education",
-        educationText: "High School Diploma: (2020) Self-education",
+        educationText: "High School Diploma: ",
         skillsTitle: "Skills",
         skillsText: "<strong>Computer:</strong> Programming, Typing, Office (Word, Excel, PowerPoint)",
         languagesText: "<strong>Languages:</strong> English, Arabic",
         techSkillsText: "<strong>Technical:</strong> 3D Design: 3D Max, SketchUp, Blender, Unity, Maya | Photo Editing: Photoshop, Illustrator, Corel Draw, InDesign",
-        softSkillsTitle: "Personal Skills",
-        softSkillsText: "Teamwork, commitment, reliability, customer service, time management, and working under pressure.",
       },
     };
 
     function toggleLanguage() {
       isArabic = !isArabic;
-     const language = isArabic ? translations.ar : translations.en;
-     document.documentElement.lang = isArabic ? "ar" : "en";
-     document.documentElement.dir = language.direction;
-     document.body.style.textAlign = language.textAlign;
+      document.body.style.direction = isArabic ? translations.ar.direction : translations.en.direction;
+      document.body.style.textAlign = isArabic ? translations.ar.textAlign : translations.en.textAlign;
 
-     const fields = {
-       name: "name", summaryTitle: "summary-title", summaryText: "summary-text",
-       objectiveTitle: "objective-title", objectiveText: "objective-text",
-       personalInfoTitle: "personal-info-title", nameLabel: "name-label", idLabel: "id-label",
-       dobLabel: "dob-label", addressLabel: "address-label", phoneLabel: "phone-label",
-       emailLabel: "email-label", experienceTitle: "experience-title", job1Title: "job1-title",
-       job1Item1: "job1-item1", job2Title: "job2-title", job2Item1: "job2-item1",
-       job2Item2: "job2-item2", job3Title: "job3-title", job3Item1: "job3-item1",
-       educationTitle: "education-title", educationText: "education-text", skillsTitle: "skills-title",
-       skillsText: "skills-text", languagesText: "languages-text", techSkillsText: "tech-skills-text",
-       softSkillsTitle: "soft-skills-title", softSkillsText: "soft-skills-text"
-     };
-     Object.entries(fields).forEach(([key, id]) => {
-       document.getElementById(id).innerHTML = language[key];
-     });
-     document.getElementById("translate-btn").innerText = isArabic ? "English" : "عربي";
-     document.getElementById("print-btn").innerText = isArabic ? "طباعة الصفحة" : "Print this page";
-     document.getElementById("print-btn").setAttribute("aria-label", isArabic ? "طباعة السيرة الذاتية الحالية" : "Print the current CV page");
+      document.getElementById("name").innerHTML = isArabic ? translations.ar.name : translations.en.name;
+      document.getElementById("summary-title").innerHTML = isArabic ? translations.ar.summaryTitle : translations.en.summaryTitle;
+      document.getElementById("summary-text").innerHTML = isArabic ? translations.ar.summaryText : translations.en.summaryText;
+      document.getElementById("personal-info-title").innerHTML = isArabic ? translations.ar.personalInfoTitle : translations.en.personalInfoTitle;
+      document.getElementById("name-label").innerHTML = isArabic ? translations.ar.nameLabel : translations.en.nameLabel;
+      document.getElementById("id-label").innerHTML = isArabic ? translations.ar.idLabel : translations.en.idLabel;
+      document.getElementById("dob-label").innerHTML = isArabic ? translations.ar.dobLabel : translations.en.dobLabel;
+      document.getElementById("address-label").innerHTML = isArabic ? translations.ar.addressLabel : translations.en.addressLabel;
+      document.getElementById("phone-label").innerHTML = isArabic ? translations.ar.phoneLabel : translations.en.phoneLabel;
+      document.getElementById("email-label").innerHTML = isArabic ? translations.ar.emailLabel : translations.en.emailLabel;
+      document.getElementById("experience-title").innerHTML = isArabic ? translations.ar.experienceTitle : translations.en.experienceTitle;
+      document.getElementById("job1-title").innerHTML = isArabic ? translations.ar.job1Title : translations.en.job1Title;
+      document.getElementById("job1-item1").innerHTML = isArabic ? translations.ar.job1Item1 : translations.en.job1Item1;
+      document.getElementById("job2-title").innerHTML = isArabic ? translations.ar.job2Title : translations.en.job2Title;
+      document.getElementById("job2-item1").innerHTML = isArabic ? translations.ar.job2Item1 : translations.en.job2Item1;
+      document.getElementById("job2-item2").innerHTML = isArabic ? translations.ar.job2Item2 : translations.en.job2Item2;
+      document.getElementById("job3-title").innerHTML = isArabic ? translations.ar.job3Title : translations.en.job3Title;
+      document.getElementById("job3-item1").innerHTML = isArabic ? translations.ar.job3Item1 : translations.en.job3Item1;
+      document.getElementById("education-title").innerHTML = isArabic ? translations.ar.educationTitle : translations.en.educationTitle;
+      document.getElementById("education-text").innerHTML = isArabic ? translations.ar.educationText : translations.en.educationText;
+      document.getElementById("skills-title").innerHTML = isArabic ? translations.ar.skillsTitle : translations.en.skillsTitle;
+      document.getElementById("skills-text").innerHTML = isArabic ? translations.ar.skillsText : translations.en.skillsText;
+      document.getElementById("languages-text").innerHTML = isArabic ? translations.ar.languagesText : translations.en.languagesText;
+      document.getElementById("tech-skills-text").innerHTML = isArabic ? translations.ar.techSkillsText : translations.en.techSkillsText;
+document.getElementById("translate-btn").innerText = isArabic ? "English" : "عربي"; 
+      // Update the float direction for profile picture based on the current language
+      document.getElementById("profilePic").style.float = isArabic ? translations.ar.floatDirection : translations.en.floatDirection;
     }
 
-    document.getElementById("translate-btn").addEventListener("click", toggleLanguage);
-    document.getElementById("print-btn").addEventListener("click", () => window.print());
+    function downloadPDF() {
+      const select = document.getElementById("pdf-select");
+      const value = select.value;
+      let url = "";
+      if (value === "arabic") {
+        url = "السيرة الذاتية لسامي محمد رشدي التميمي.pdf";
+      } else if (value === "english") {
+        url = "Resume of Sami Mohammed Rashdi Al-Tamimi.pdf";
+      }
+      if (url) {
+        window.open(url, "_blank");
+      }
+    }
