@@ -96,23 +96,9 @@
        document.getElementById(id).innerHTML = language[key];
      });
      document.getElementById("translate-btn").innerText = isArabic ? "English" : "عربي";
-    }
-
-    function downloadPDF() {
-      const select = document.getElementById("pdf-select");
-      const value = select.value;
-      let url = "";
-      if (value === "arabic") {
-        url = "السيرة الذاتية لسامي محمد رشدي التميمي.pdf";
-      } else if (value === "english") {
-        url = "Resume of Sami Mohammed Rashdi Al-Tamimi.pdf";
-      }
-      if (url) {
-        window.open(url, "_blank", "noopener,noreferrer");
-        select.value = "";
-      }
+     document.getElementById("print-btn").innerText = isArabic ? "طباعة الصفحة" : "Print this page";
+     document.getElementById("print-btn").setAttribute("aria-label", isArabic ? "طباعة السيرة الذاتية الحالية" : "Print the current CV page");
     }
 
     document.getElementById("translate-btn").addEventListener("click", toggleLanguage);
-    document.getElementById("pdf-select").addEventListener("change", downloadPDF);
     document.getElementById("print-btn").addEventListener("click", () => window.print());

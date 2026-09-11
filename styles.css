@@ -72,7 +72,7 @@ li { background: #f8fbfd; border: 1px solid var(--border); border-radius: 9px; p
 .personal-info { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
 .personal-info p { margin: 0; }
 a { color: var(--blue); font-weight: 600; }
-.translate-btn, .print-btn, .pdf-select {
+.translate-btn, .print-btn {
   border: 1px solid var(--blue);
   border-radius: 8px;
   padding: 10px 14px;
@@ -80,16 +80,15 @@ a { color: var(--blue); font-weight: 600; }
 }
 .translate-btn, .print-btn { background: var(--blue); color: white; cursor: pointer; }
 .print-btn { background: var(--navy); }
-.pdf-select { background: white; color: var(--navy); cursor: pointer; }
 .translate-btn:hover, .translate-btn:focus-visible, .print-btn:hover, .print-btn:focus-visible { background: #0d5590; }
-.translate-btn:focus-visible, .print-btn:focus-visible, .pdf-select:focus-visible, a:focus-visible { outline: 3px solid #9bd1f5; outline-offset: 2px; }
+.translate-btn:focus-visible, .print-btn:focus-visible, a:focus-visible { outline: 3px solid #9bd1f5; outline-offset: 2px; }
 .visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
 
 @media (max-width: 640px) {
   body { padding: 12px; }
   .container { border-radius: 12px; padding: 22px 18px; }
   .toolbar { justify-content: stretch; margin-bottom: 24px; }
-  .toolbar > *, .toolbar-actions, .download-control, .pdf-select { width: 100%; }
+  .toolbar > *, .toolbar-actions { width: 100%; }
   .toolbar-actions { display: grid; grid-template-columns: 1fr 1fr; }
   .hero { flex-direction: column; text-align: center; gap: 20px; }
   .profile-pic { width: 135px; height: 135px; }
