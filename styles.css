@@ -43,11 +43,11 @@ body {
   height: 170px;
   border-radius: 50%;
   background-color: #d9e2ec;
-  background-image: url('IMG-20240826-WA0010.jpg');
-  background-size: cover;
-  background-position: center;
+  object-fit: cover;
+  object-position: center;
   flex-shrink: 0;
   border: 6px solid #e6f0f8;
+  display: block;
 }
 
 .hero {
