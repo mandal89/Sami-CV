@@ -73,6 +73,16 @@
       },
     };
 
+    function ensureAbsoluteProfileImageSrc() {
+      const profilePic = document.getElementById("profilePic");
+      if (!profilePic) return;
+
+      const originalSrc = profilePic.getAttribute("src");
+      if (!originalSrc) return;
+
+      profilePic.src = new URL(originalSrc, window.location.href).href;
+    }
+
     function toggleLanguage() {
       isArabic = !isArabic;
      const language = isArabic ? translations.ar : translations.en;
@@ -100,5 +110,6 @@
      document.getElementById("print-btn").setAttribute("aria-label", isArabic ? "طباعة السيرة الذاتية الحالية" : "Print the current CV page");
     }
 
+    ensureAbsoluteProfileImageSrc();
     document.getElementById("translate-btn").addEventListener("click", toggleLanguage);
     document.getElementById("print-btn").addEventListener("click", () => window.print());
