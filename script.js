@@ -144,4 +144,7 @@
     prepareProfileImageForPrint();
     window.addEventListener("beforeprint", () => { prepareProfileImageForPrint(); });
     document.getElementById("translate-btn").addEventListener("click", toggleLanguage);
-    document.getElementById("print-btn").addEventListener("click", () => window.print());
+    document.getElementById("print-btn").addEventListener("click", async () => {
+      await prepareProfileImageForPrint();
+      window.print();
+    });
