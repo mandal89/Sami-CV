@@ -90,14 +90,19 @@
       if (!originalSrc) return;
 
       const normalizedSrc = new URL(originalSrc, window.location.href).href;
-      if (profilePic.src !== normalizedSrc) {
-        profilePic.src = normalizedSrc;
+      if (!profilePic.dataset.originalSrc) {
+        profilePic.dataset.originalSrc = normalizedSrc;
       }
 
-      if (profilePic.src.startsWith("data:")) return;
+      const sourceUrl = profilePic.dataset.originalSrc;
+      if (!sourceUrl) return;
+
+      if (profilePic.src !== sourceUrl && !profilePic.src.startsWith("data:")) {
+        profilePic.dataset.originalSrc = profilePic.src;
+      }
 
       try {
-        const response = await fetch(profilePic.src, { cache: "force-cache" });
+        const response = await fetch(sourceUrl, { cache: "force-cache" });
         if (!response.ok) return;
         const imageBlob = await response.blob();
         const dataUrl = await blobToDataUrl(imageBlob);
