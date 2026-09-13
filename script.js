@@ -82,7 +82,12 @@
       });
     }
 
+    let profileImagePreparationPromise = null;
+
     async function prepareProfileImageForPrint() {
+      if (profileImagePreparationPromise) return profileImagePreparationPromise;
+
+      profileImagePreparationPromise = (async () => {
       const profilePic = document.getElementById("profilePic");
       if (!profilePic) return;
 
@@ -101,6 +106,10 @@
         profilePic.dataset.originalSrc = profilePic.src;
       }
 
+      if (profilePic.src.startsWith("data:") && profilePic.dataset.inlinedFromSrc === sourceUrl) {
+        return;
+      }
+
       try {
         const response = await fetch(sourceUrl, { cache: "force-cache" });
         if (!response.ok) return;
@@ -108,9 +117,17 @@
         const dataUrl = await blobToDataUrl(imageBlob);
         if (typeof dataUrl === "string") {
           profilePic.src = dataUrl;
+          profilePic.dataset.inlinedFromSrc = sourceUrl;
         }
       } catch {
         // Keep the original image source if inlining fails.
+      }
+      })();
+
+      try {
+        await profileImagePreparationPromise;
+      } finally {
+        profileImagePreparationPromise = null;
       }
     }
 
