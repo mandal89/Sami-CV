@@ -73,7 +73,16 @@
       },
     };
 
-    function ensureAbsoluteProfileImageSrc() {
+    function blobToDataUrl(blob) {
+      return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onloadend = () => resolve(reader.result);
+        reader.onerror = reject;
+        reader.readAsDataURL(blob);
+      });
+    }
+
+    async function prepareProfileImageForPrint() {
       const profilePic = document.getElementById("profilePic");
       if (!profilePic) return;
 
@@ -83,6 +92,20 @@
       const normalizedSrc = new URL(originalSrc, window.location.href).href;
       if (profilePic.src !== normalizedSrc) {
         profilePic.src = normalizedSrc;
+      }
+
+      if (profilePic.src.startsWith("data:")) return;
+
+      try {
+        const response = await fetch(profilePic.src, { cache: "force-cache" });
+        if (!response.ok) return;
+        const imageBlob = await response.blob();
+        const dataUrl = await blobToDataUrl(imageBlob);
+        if (typeof dataUrl === "string") {
+          profilePic.src = dataUrl;
+        }
+      } catch {
+        // Keep the original image source if inlining fails.
       }
     }
 
@@ -113,6 +136,7 @@
      document.getElementById("print-btn").setAttribute("aria-label", isArabic ? "طباعة السيرة الذاتية الحالية" : "Print the current CV page");
     }
 
-    ensureAbsoluteProfileImageSrc();
+    prepareProfileImageForPrint();
+    window.addEventListener("beforeprint", () => { prepareProfileImageForPrint(); });
     document.getElementById("translate-btn").addEventListener("click", toggleLanguage);
     document.getElementById("print-btn").addEventListener("click", () => window.print());
