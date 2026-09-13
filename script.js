@@ -73,6 +73,64 @@
       },
     };
 
+    function blobToDataUrl(blob) {
+      return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onloadend = () => resolve(reader.result);
+        reader.onerror = reject;
+        reader.readAsDataURL(blob);
+      });
+    }
+
+    let profileImagePreparationPromise = null;
+
+    async function prepareProfileImageForPrint() {
+      if (profileImagePreparationPromise) return profileImagePreparationPromise;
+
+      profileImagePreparationPromise = (async () => {
+      const profilePic = document.getElementById("profilePic");
+      if (!profilePic) return;
+
+      const originalSrc = profilePic.getAttribute("src");
+      if (!originalSrc) return;
+
+      const normalizedSrc = new URL(originalSrc, window.location.href).href;
+      if (!profilePic.dataset.originalSrc) {
+        profilePic.dataset.originalSrc = normalizedSrc;
+      }
+
+      const sourceUrl = profilePic.dataset.originalSrc;
+      if (!sourceUrl) return;
+
+      if (profilePic.src !== sourceUrl && !profilePic.src.startsWith("data:")) {
+        profilePic.dataset.originalSrc = profilePic.src;
+      }
+
+      if (profilePic.src.startsWith("data:") && profilePic.dataset.inlinedFromSrc === sourceUrl) {
+        return;
+      }
+
+      try {
+        const response = await fetch(sourceUrl, { cache: "force-cache" });
+        if (!response.ok) return;
+        const imageBlob = await response.blob();
+        const dataUrl = await blobToDataUrl(imageBlob);
+        if (typeof dataUrl === "string") {
+          profilePic.src = dataUrl;
+          profilePic.dataset.inlinedFromSrc = sourceUrl;
+        }
+      } catch {
+        // Keep the original image source if inlining fails.
+      }
+      })();
+
+      try {
+        await profileImagePreparationPromise;
+      } finally {
+        profileImagePreparationPromise = null;
+      }
+    }
+
     function toggleLanguage() {
       isArabic = !isArabic;
      const language = isArabic ? translations.ar : translations.en;
@@ -100,5 +158,10 @@
      document.getElementById("print-btn").setAttribute("aria-label", isArabic ? "طباعة السيرة الذاتية الحالية" : "Print the current CV page");
     }
 
+    prepareProfileImageForPrint();
+    window.addEventListener("beforeprint", () => { prepareProfileImageForPrint(); });
     document.getElementById("translate-btn").addEventListener("click", toggleLanguage);
-    document.getElementById("print-btn").addEventListener("click", () => window.print());
+    document.getElementById("print-btn").addEventListener("click", async () => {
+      await prepareProfileImageForPrint();
+      window.print();
+    });
