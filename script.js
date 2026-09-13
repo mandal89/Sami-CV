@@ -80,7 +80,10 @@
       const originalSrc = profilePic.getAttribute("src");
       if (!originalSrc) return;
 
-      profilePic.src = new URL(originalSrc, window.location.href).href;
+      const normalizedSrc = new URL(originalSrc, window.location.href).href;
+      if (profilePic.src !== normalizedSrc) {
+        profilePic.src = normalizedSrc;
+      }
     }
 
     function toggleLanguage() {
